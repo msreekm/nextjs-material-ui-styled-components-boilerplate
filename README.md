@@ -1,4 +1,4 @@
-# Server side rendering boilerplate with Next.js and Material-ui
+# Server side rendering boilerplate with Next.js ,Apollo, MobX, Styled Components  and Material-ui
 
 This project is a simple boilerplate for server side rendering approach. It comes with `Next.js` to handle routes and server side rendering, `Material-ui` for a components framework, `Styled-components` to style lib,`Apollo` for graphql, `MobX` for state management .
 
