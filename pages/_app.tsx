@@ -16,8 +16,10 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from '../lib/theme'
 
 export default function App({ Component, pageProps }) {
+  console.log('app')
   const apolloClient = useApollo(pageProps)
   const store = useStore(pageProps.initialState)
+  const Layout = Component.Layout ? Component.Layout : React.Fragment
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -33,7 +35,9 @@ export default function App({ Component, pageProps }) {
         <StoreProvider store={store}>
           <ApolloProvider client={apolloClient}>
             <CssBaseline />
-            <Component {...pageProps} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
           </ApolloProvider>
         </StoreProvider>
       </MaterialThemeProvider>

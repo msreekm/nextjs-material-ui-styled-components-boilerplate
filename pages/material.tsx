@@ -5,20 +5,19 @@ import { Button, Paper } from '@material-ui/core'
 import styled from 'styled-components'
 import App from '../components/App'
 import Header from '../components/Header'
+import MyLayout from '../layouts/MyLayout'
 
 const MaterialContainer = styled(Container)`
-  background-color: #6772e5;
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   margin-top: 40px;
-  padding: 20px;
+  padding: 40px;
 `
 
 export default function Index() {
   return (
-    <App>
-      <Header />
-
+    <>
       <MaterialContainer maxWidth="sm">
-        <Paper elevation={1}>
+        <Paper elevation={10}>
           <Button variant="contained">Default</Button>
           <Button variant="contained" color="primary">
             Primary
@@ -34,6 +33,7 @@ export default function Index() {
           </Button>
         </Paper>
       </MaterialContainer>
-    </App>
+    </>
   )
 }
+Index.Layout = MyLayout

@@ -1,6 +1,4 @@
-import App from '../components/App'
 import InfoBox from '../components/InfoBox'
-import Header from '../components/Header'
 import Submit from '../components/Submit'
 import PostList, {
   ALL_POSTS_QUERY,
@@ -8,20 +6,23 @@ import PostList, {
 } from '../components/PostList'
 import { initializeApollo, addApolloState } from '../lib/apolloClient'
 import styled from 'styled-components'
+import MyLayout from '../layouts/MyLayout'
+import Link from 'next/link'
 
 const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.primary};
+  font-size: 22px;
+  color: ${({ theme }) => theme.palette.secondary.main};
 `
 
 const IndexPage = () => (
-  <App>
-    <Title>My page</Title>
-    <Header />
+  <>
+    <Title>Home page</Title>
+    <Link href="/client-only">Client Only</Link>
+
     <InfoBox>ℹ️ This page shows how to use SSG with Apollo.</InfoBox>
     <Submit />
     <PostList />
-  </App>
+  </>
 )
 
 export async function getStaticProps() {
@@ -37,5 +38,7 @@ export async function getStaticProps() {
     revalidate: 1,
   })
 }
+
+IndexPage.Layout = MyLayout
 
 export default IndexPage
